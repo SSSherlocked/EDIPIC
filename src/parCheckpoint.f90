@@ -22,7 +22,7 @@ SUBROUTINE SAVE_CHECKPOINT_MPIIO
   INTEGER*4 state_ind, func, state_var(624)
 
   INTEGER ibufer_length
-  INTEGER, ALLOCATABLE :: ibufer(:)
+  REAL(8), ALLOCATABLE :: ibufer(:)
   INTEGER ALLOC_ERR
 
   INTEGER rbufer_length
@@ -33,7 +33,7 @@ SUBROUTINE SAVE_CHECKPOINT_MPIIO
   CHARACTER(20) filename_check         ! Tcntr_TTTTTTTT.check
                                        ! ----x----I----x----I
 
-  INTEGER, ALLOCATABLE :: jbufer(:)
+  REAL(8), ALLOCATABLE :: jbufer(:)
   REAL(8), ALLOCATABLE :: dbufer(:)
   INTEGER s, k, bufsize, pos
 
@@ -177,10 +177,10 @@ SUBROUTINE READ_CHECKPOINT_MPIIO
 
   LOGICAL exists
 
-  INTEGER*4 state_ind, func, state_var(624)
+  INTEGER(4) state_ind, func, state_var(624)
 
   INTEGER ibufer_length
-  INTEGER, ALLOCATABLE :: ibufer(:)
+  REAL(8), ALLOCATABLE :: ibufer(:)
   INTEGER ALLOC_ERR
 
   INTEGER rbufer_length
@@ -191,7 +191,7 @@ SUBROUTINE READ_CHECKPOINT_MPIIO
   CHARACTER(20) filename_check         ! Tcntr_TTTTTTTT.check
                                        ! ----x----I----x----I
 
-  INTEGER, ALLOCATABLE :: jbufer(:)
+  REAL(8), ALLOCATABLE :: jbufer(:)
   REAL(8), ALLOCATABLE :: dbufer(:)
   INTEGER s, k, bufsize, pos
 
@@ -320,11 +320,10 @@ END SUBROUTINE READ_CHECKPOINT_MPIIO
 !-----------------------------------
 ! creates a string of length "length_of_string" out of an integer number "int_number"
 !
-function convert_int_to_txt_string(int_number, length_of_string)
+character*(length_of_string) function convert_int_to_txt_string(int_number, length_of_string)
 
   implicit none
 
-  character*(length_of_string) convert_int_to_txt_string
   integer int_number
   integer length_of_string
   character(5) format_string
