@@ -22,7 +22,7 @@ SUBROUTINE SAVE_CHECKPOINT_MPIIO
   INTEGER*4 state_ind, func, state_var(624)
 
   INTEGER ibufer_length
-  REAL(8), ALLOCATABLE :: ibufer(:)
+  INTEGER, ALLOCATABLE :: ibufer(:)
   INTEGER ALLOC_ERR
 
   INTEGER rbufer_length
@@ -33,7 +33,7 @@ SUBROUTINE SAVE_CHECKPOINT_MPIIO
   CHARACTER(20) filename_check         ! Tcntr_TTTTTTTT.check
                                        ! ----x----I----x----I
 
-  REAL(8), ALLOCATABLE :: jbufer(:)
+  INTEGER, ALLOCATABLE :: jbufer(:)
   REAL(8), ALLOCATABLE :: dbufer(:)
   INTEGER s, k, bufsize, pos
 
@@ -177,10 +177,10 @@ SUBROUTINE READ_CHECKPOINT_MPIIO
 
   LOGICAL exists
 
-  INTEGER(4) state_ind, func, state_var(624)
+  INTEGER*4 state_ind, func, state_var(624)
 
   INTEGER ibufer_length
-  REAL(8), ALLOCATABLE :: ibufer(:)
+  INTEGER, ALLOCATABLE :: ibufer(:)
   INTEGER ALLOC_ERR
 
   INTEGER rbufer_length
@@ -191,7 +191,7 @@ SUBROUTINE READ_CHECKPOINT_MPIIO
   CHARACTER(20) filename_check         ! Tcntr_TTTTTTTT.check
                                        ! ----x----I----x----I
 
-  REAL(8), ALLOCATABLE :: jbufer(:)
+  INTEGER, ALLOCATABLE :: jbufer(:)
   REAL(8), ALLOCATABLE :: dbufer(:)
   INTEGER s, k, bufsize, pos
 
